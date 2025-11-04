@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موبایل گوهری | فروش موبایل، تعمیرات تخصصی و خرید گوشی کارکرده</title>
+    <title>خانه جوراب | فروش انواع جوراب و مشتقات و صندل</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,20 +15,20 @@
         }
         
         :root {
-            --primary: #0a0a0a; /* مشکی */
-            --secondary: #1a1a1a; /* مشکی تیره */
-            --accent: #FF6B6B; /* قرمز مرجانی */
-            --accent-light: #FF8E8E; /* قرمز روشن */
-            --accent2: #4ECDC4; /* فیروزه‌ای */
-            --text: #e0e0e0;
-            --text-light: #a0a0a0;
-            --background: #121212;
-            --white: #f5f5f5;
-            --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            --shadow-heavy: 0 15px 40px rgba(0, 0, 0, 0.5);
+            --primary: #FFF0F5; /* صورتی بسیار روشن */
+            --secondary: #FFE4E6; /* صورتی کمرنگ */
+            --accent: #C2185B; /* صورتی تیره/ارغوانی */
+            --accent-light: #E91E63; /* صورتی روشن */
+            --accent2: #F8BBD0; /* صورتی ملایم */
+            --text: #212121; /* مشکی */
+            --text-light: #424242; /* خاکستری تیره */
+            --background: #FFF8F8; /* سفید مایل به صورتی */
+            --white: #FFFFFF;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: 0 15px 40px rgba(0, 0, 0, 0.15);
             --radius: 20px;
-            --gradient: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            --gradient-accent: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            --gradient: linear-gradient(135deg, #FFF0F5 0%, #FFE4E6 100%);
+            --gradient-accent: linear-gradient(135deg, #C2185B 0%, #E91E63 100%);
         }
         
         body {
@@ -37,6 +37,10 @@
             line-height: 1.7;
             overflow-x: hidden;
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23FFF0F5"/><path d="M30,30 L70,30 L70,70 L30,70 Z" stroke="%23F8BBD0" stroke-width="1" fill="none"/></svg>');
+            background-size: 300px;
+            background-repeat: repeat;
+            background-attachment: fixed;
         }
         
         /* Loading Screen */
@@ -67,14 +71,14 @@
             object-fit: cover;
             margin-bottom: 2rem;
             border: 5px solid var(--accent);
-            box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+            box-shadow: 0 0 30px rgba(194, 24, 91, 0.5);
             animation: pulse 2s infinite;
         }
         
         .loading-spinner {
             width: 60px;
             height: 60px;
-            border: 5px solid rgba(245, 245, 245, 0.3);
+            border: 5px solid rgba(194, 24, 91, 0.3);
             border-radius: 50%;
             border-top-color: var(--accent);
             animation: spin 1s linear infinite;
@@ -93,11 +97,12 @@
         /* Header Styles */
         header {
             background: var(--gradient);
-            color: var(--white);
+            color: var(--text);
             padding: 1.2rem 0;
             box-shadow: var(--shadow-heavy);
             position: relative;
             z-index: 100;
+            border-bottom: 3px solid var(--accent);
         }
         
         .header-container {
@@ -120,22 +125,22 @@
             height: 70px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 8px 25px rgba(194, 24, 91, 0.3);
             transition: all 0.4s ease;
             border: 3px solid var(--accent);
         }
         
         .logo:hover .logo-img {
             transform: rotate(15deg) scale(1.1);
-            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.5);
+            box-shadow: 0 12px 35px rgba(194, 24, 91, 0.5);
         }
         
         .logo-text {
             font-size: 2.2rem;
             font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             font-family: 'Lalezar', cursive;
-            color: var(--white);
+            color: var(--text);
         }
         
         /* Navigation */
@@ -146,7 +151,7 @@
         }
         
         nav a {
-            color: var(--white);
+            color: var(--text);
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
@@ -156,19 +161,18 @@
         }
         
         nav a:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(194, 24, 91, 0.15);
             transform: translateY(-2px);
         }
         
         /* Hero Section */
         .hero {
             background: 
-                linear-gradient(rgba(10, 10, 10, 0.85), rgba(26, 26, 26, 0.9)),
-                url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80');
+                linear-gradient(rgba(255, 240, 245, 0.85), rgba(255, 228, 230, 0.9)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23FFE4E6"/><circle cx="200" cy="200" r="100" fill="%23F8BBD0" opacity="0.5"/><circle cx="900" cy="400" r="150" fill="%23F8BBD0" opacity="0.3"/><circle cx="600" cy="600" r="120" fill="%23F8BBD0" opacity="0.4"/></svg>');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            color: var(--white);
+            color: var(--text);
             padding: 6rem 2rem;
             text-align: center;
             min-height: 80vh;
@@ -185,7 +189,7 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 70% 30%, rgba(255, 107, 107, 0.2) 0%, transparent 50%);
+            background: radial-gradient(circle at 70% 30%, rgba(194, 24, 91, 0.2) 0%, transparent 50%);
         }
         
         .hero-container {
@@ -201,8 +205,9 @@
             margin-bottom: 1.5rem;
             line-height: 1.2;
             font-weight: 800;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
             font-family: 'Lalezar', cursive;
+            color: var(--text);
         }
         
         .hero p {
@@ -213,6 +218,7 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            color: var(--text);
         }
         
         .hero-buttons {
@@ -234,7 +240,7 @@
             cursor: pointer;
             border: none;
             font-size: 1.1rem;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -261,17 +267,17 @@
         
         .btn-primary:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 15px 35px rgba(194, 24, 91, 0.4);
         }
         
         .btn-secondary {
             background: transparent;
-            color: var(--white);
-            border: 3px solid var(--white);
+            color: var(--text);
+            border: 3px solid var(--text);
         }
         
         .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.15);
+            background-color: rgba(194, 24, 91, 0.15);
             transform: translateY(-8px) scale(1.05);
         }
         
@@ -288,10 +294,11 @@
             padding: 3rem;
             border-radius: var(--radius);
             box-shadow: var(--shadow-heavy);
-            color: var(--white);
+            color: var(--text);
             text-align: center;
             position: relative;
             overflow: hidden;
+            border: 2px solid var(--accent);
         }
         
         .quote-container::before {
@@ -301,7 +308,7 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at top left, rgba(255, 107, 107, 0.3) 0%, transparent 50%);
+            background: radial-gradient(circle at top left, rgba(194, 24, 91, 0.3) 0%, transparent 50%);
         }
         
         .quote-text {
@@ -312,7 +319,7 @@
             position: relative;
             z-index: 1;
             color: var(--accent);
-            text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+            text-shadow: 0 0 10px rgba(194, 24, 91, 0.3);
         }
         
         .quote-subtext {
@@ -353,7 +360,7 @@
             border-radius: var(--radius);
             background: var(--secondary);
             box-shadow: var(--shadow);
-            border: 1px solid rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(194, 24, 91, 0.1);
         }
         
         .contact-item:hover {
@@ -371,7 +378,7 @@
             justify-content: center;
             font-size: 1.6rem;
             color: var(--white);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 8px 20px rgba(194, 24, 91, 0.3);
             flex-shrink: 0;
         }
         
@@ -379,7 +386,7 @@
             margin-bottom: 0.8rem;
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--text);
         }
         
         .contact-details a, .contact-details p {
@@ -407,12 +414,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            color: var(--text);
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             position: relative;
+            border: 1px solid rgba(194, 24, 91, 0.2);
         }
         
         .social-link::after {
@@ -423,7 +431,7 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(194, 24, 91, 0.1);
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -435,7 +443,8 @@
         .social-link:hover {
             background: var(--gradient-accent);
             transform: translateY(-8px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 10px 25px rgba(194, 24, 91, 0.4);
+            color: var(--white);
         }
         
         .social-text {
@@ -460,12 +469,13 @@
             box-shadow: var(--shadow-heavy);
             text-align: center;
             transition: all 0.4s ease;
-            color: var(--white);
+            color: var(--text);
+            border: 2px solid var(--accent);
         }
         
         .quick-contact:hover {
             transform: translateY(-15px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
         
         .quick-contact h3 {
@@ -498,7 +508,7 @@
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .contact-btn.whatsapp {
@@ -533,14 +543,14 @@
         
         .contact-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         /* Features Section */
         .features {
             padding: 6rem 2rem;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: var(--white);
+            color: var(--text);
             position: relative;
         }
         
@@ -551,7 +561,7 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M30,30 L70,30 L70,70 L30,70 Z" stroke="%23ffffff" stroke-width="1" fill="none" opacity="0.1"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M30,30 L70,30 L70,70 L30,70 Z" stroke="%23C2185B" stroke-width="1" fill="none" opacity="0.1"/></svg>');
             background-size: 100px;
             opacity: 0.1;
         }
@@ -567,8 +577,9 @@
             font-size: 2.8rem;
             margin-bottom: 1.5rem;
             font-weight: 800;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
             font-family: 'Lalezar', cursive;
+            color: var(--text);
         }
         
         .section-title p {
@@ -590,14 +601,14 @@
         }
         
         .feature-card {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border-radius: var(--radius);
             padding: 3rem 2rem;
             box-shadow: var(--shadow);
             transition: all 0.4s ease;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(194, 24, 91, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -609,7 +620,7 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1));
+            background: linear-gradient(135deg, transparent, rgba(194, 24, 91, 0.1));
             opacity: 0;
             transition: opacity 0.3s;
         }
@@ -620,133 +631,41 @@
         
         .feature-card:hover {
             transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
         .feature-icon {
             width: 90px;
             height: 90px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(194, 24, 91, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 2rem;
-            color: var(--white);
+            color: var(--text);
             font-size: 2.2rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
         
         .feature-card:hover .feature-icon {
             transform: scale(1.2) rotate(15deg);
-            background: rgba(255, 107, 107, 0.3);
+            background: rgba(194, 24, 91, 0.3);
         }
         
         .feature-card h3 {
             font-size: 1.6rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
+            color: var(--text);
         }
         
         .feature-card p {
             line-height: 1.8;
             font-size: 1.05rem;
             opacity: 0.9;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 6rem 2rem;
-            background: var(--background);
-            position: relative;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .service-card {
-            background: var(--gradient);
-            border-radius: var(--radius);
-            padding: 3rem 2rem;
-            box-shadow: var(--shadow-heavy);
-            transition: all 0.4s ease;
-            text-align: center;
-            border: 1px solid rgba(255, 107, 107, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, transparent, rgba(255, 107, 107, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        
-        .service-icon {
-            width: 90px;
-            height: 90px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 2rem;
-            color: var(--white);
-            font-size: 2.2rem;
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(15deg);
-        }
-        
-        .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-        }
-        
-        .service-card p {
-            line-height: 1.8;
-            font-size: 1.05rem;
-            opacity: 0.9;
             color: var(--text);
-        }
-        
-        .service-highlight {
-            background: var(--gradient-accent);
-            color: var(--white);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 1.5rem;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
         }
         
         /* Add to Home Section */
@@ -762,10 +681,11 @@
             padding: 3rem;
             border-radius: var(--radius);
             box-shadow: var(--shadow-heavy);
-            color: var(--white);
+            color: var(--text);
             text-align: center;
             position: relative;
             overflow: hidden;
+            border: 2px solid var(--accent);
         }
         
         .add-to-home-container::before {
@@ -775,7 +695,7 @@
             right: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at top left, rgba(255, 107, 107, 0.3) 0%, transparent 50%);
+            background: radial-gradient(circle at top left, rgba(194, 24, 91, 0.3) 0%, transparent 50%);
         }
         
         .add-to-home-content {
@@ -793,7 +713,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--accent);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 10px 30px rgba(194, 24, 91, 0.4);
             flex-shrink: 0;
         }
         
@@ -806,19 +726,22 @@
             font-size: 1.8rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            color: var(--text);
         }
         
         .add-to-home-text p {
             margin-bottom: 1.5rem;
             opacity: 0.9;
             line-height: 1.7;
+            color: var(--text);
         }
         
         /* Footer */
         footer {
             background: var(--gradient);
-            color: var(--white);
+            color: var(--text);
             padding: 4rem 2rem 2rem;
+            border-top: 3px solid var(--accent);
         }
         
         .footer-container {
@@ -835,6 +758,7 @@
             position: relative;
             padding-bottom: 0.8rem;
             font-weight: 700;
+            color: var(--text);
         }
         
         .footer-col h4::after {
@@ -858,10 +782,11 @@
             align-items: center;
             gap: 10px;
             font-size: 1rem;
+            color: var(--text);
         }
         
         .footer-col a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text);
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -874,8 +799,8 @@
             text-align: center;
             margin-top: 4rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+            border-top: 1px solid rgba(194, 24, 91, 0.2);
+            color: var(--text);
             font-size: 1rem;
         }
         
@@ -883,7 +808,7 @@
         .visit-smart-section {
             padding: 3rem 2rem;
             background: var(--background);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(194, 24, 91, 0.2);
         }
         
         .visit-smart-container {
@@ -914,7 +839,7 @@
         }
         
         .visit-smart-contact a:hover {
-            color: var(--white);
+            color: var(--text);
         }
         
         /* Modal Styles */
@@ -945,7 +870,8 @@
             box-shadow: var(--shadow-heavy);
             position: relative;
             text-align: center;
-            color: var(--white);
+            color: var(--text);
+            border: 2px solid var(--accent);
         }
         
         .modal-close {
@@ -966,7 +892,7 @@
         .modal-title {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: var(--white);
+            color: var(--text);
             font-weight: 700;
         }
         
@@ -983,7 +909,7 @@
         
         .modal-step h4 {
             margin-bottom: 0.5rem;
-            color: var(--white);
+            color: var(--text);
             font-weight: 600;
         }
         
@@ -995,7 +921,7 @@
         .modal-footer {
             margin-top: 2rem;
             padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(194, 24, 91, 0.2);
         }
         
         .modal-btn {
@@ -1062,7 +988,7 @@
             transform: translateX(-50%);
             width: 80%;
             height: 30px;
-            background: radial-gradient(ellipse at center, rgba(255, 107, 107, 0.4) 0%, transparent 70%);
+            background: radial-gradient(ellipse at center, rgba(194, 24, 91, 0.4) 0%, transparent 70%);
             filter: blur(10px);
             z-index: -1;
         }
@@ -1110,7 +1036,7 @@
                 flex-direction: column;
             }
             
-            .features, .services {
+            .features {
                 padding: 4rem 1rem;
             }
             
@@ -1155,11 +1081,11 @@
                 font-size: 2rem;
             }
             
-            .features, .services, .quick-contact-section, .quote-section, .add-to-home-section {
+            .features, .quick-contact-section, .quote-section, .add-to-home-section {
                 padding: 3rem 1rem;
             }
             
-            .feature-card, .service-card, .quick-contact, .quote-container, .add-to-home-container {
+            .feature-card, .quick-contact, .quote-container, .add-to-home-container {
                 padding: 2rem 1.5rem;
             }
             
@@ -1183,7 +1109,7 @@
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
-        <img src="https://i.ibb.co/ks6RJzpP/logo.png" alt="موبایل گوهری Logo" class="loading-logo">
+        <img src="https://i.ibb.co/rjQwcxR/logo.png" alt="خانه جوراب Logo" class="loading-logo">
         <div class="loading-spinner"></div>
     </div>
 
@@ -1191,13 +1117,13 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="https://i.ibb.co/ks6RJzpP/logo.png" alt="موبایل گوهری Logo" class="logo-img">
-                <div class="logo-text">موبایل گوهری</div>
+                <img src="https://i.ibb.co/rjQwcxR/logo.png" alt="خانه جوراب Logo" class="logo-img">
+                <div class="logo-text">خانه جوراب</div>
             </div>
             <nav>
                 <ul>
                     <li><a href="#home">خانه</a></li>
-                    <li><a href="#services">خدمات</a></li>
+                    <li><a href="#services">محصولات</a></li>
                     <li><a href="#contact">تماس</a></li>
                 </ul>
             </nav>
@@ -1207,11 +1133,11 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-container">
-            <h1>موبایل گوهری | فروش موبایل، تعمیرات تخصصی و خرید گوشی کارکرده</h1>
-            <p>با ما به روز باشید! فروش انواع موبایل نو و کارکرده، تعمیرات تخصصی و لوازم جانبی اندروید و آیفون با بهترین کیفیت و قیمت</p>
+            <h1>خانه جوراب | فروش انواع جوراب و مشتقات و صندل</h1>
+            <p>ارسال به سراسر ایران ✨️</p>
             <div class="hero-buttons">
                 <a href="#services" class="btn btn-primary">
-                    <i class="fas fa-mobile-alt"></i> خدمات ما
+                    <i class="fas fa-socks"></i> محصولات ما
                 </a>
                 <a href="#contact" class="btn btn-secondary">
                     <i class="fas fa-phone-alt"></i> تماس با ما
@@ -1224,54 +1150,8 @@
     <!-- Quote Section -->
     <section class="quote-section">
         <div class="quote-container">
-            <div class="quote-text">با ما به روز باشید!</div>
-            <div class="quote-subtext">خرید و فروش گوشی کارکرده و نو، تعمیرات تخصصی و ارسال درب منزل</div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-title">
-            <h2>خدمات تخصصی ما</h2>
-            <p>با سال‌ها تجربه در زمینه موبایل، بهترین خدمات را به شما ارائه می‌دهیم</p>
-        </div>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3>خرید و فروش گوشی کارکرده</h3>
-                <p>خرید و فروش انواع گوشی‌های کارکرده با بهترین قیمت و تضمین سلامت فنی</p>
-                <div class="service-highlight">قیمت مناسب</div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3>تعمیرات تخصصی موبایل</h3>
-                <p>تعمیرات تخصصی انواع موبایل اندروید و آیفون با استفاده از تجهیزات پیشرفته</p>
-                <div class="service-highlight">تضمین کیفیت</div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-shopping-bag"></i>
-                </div>
-                <h3>فروش موبایل نو</h3>
-                <p>فروش انواع موبایل نو از برندهای معتبر با گارانتی اصلی و قیمت رقابتی</p>
-                <div class="service-highlight">گارانتی معتبر</div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-headphones"></i>
-                </div>
-                <h3>لوازم جانبی موبایل</h3>
-                <p>انواع لوازم جانبی موبایل اندروید و آیفون با کیفیت بالا و قیمت مناسب</p>
-                <div class="service-highlight">کیفیت عالی</div>
-            </div>
+            <div class="quote-text">ارسال به سراسر ایران</div>
+            <div class="quote-subtext">✨️</div>
         </div>
     </section>
 
@@ -1285,8 +1165,8 @@
                     </div>
                     <div class="contact-details">
                         <h3>آدرس کامل فروشگاه</h3>
-                        <p>قاسم آباد بین شریعتی ۲۵ و ۲۷</p>
-                        <p>موبایل گوهری</p>
+                        <p>پروما طبقه ۲ واحد ۲۴۲</p>
+                        <p>خانه جوراب</p>
                     </div>
                 </div>
                 
@@ -1296,7 +1176,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>شماره تماس</h3>
-                        <a href="tel:09150103100">۰۹۱۵۰۱۰۳۱۰۰</a>
+                        <a href="tel:09383300130">۰۹۳۸۳۳۰۰۱۳۰</a>
                     </div>
                 </div>
                 
@@ -1306,21 +1186,15 @@
                     </div>
                     <div class="contact-details">
                         <h3>شبکه‌های اجتماعی</h3>
-                        <p>اینستاگرام: mobile_gohary_mhd</p>
-                        <p>تلگرام: Hamrahegohary@</p>
-                        <p>ایمیل: mostafagohary2456@gmail.com</p>
+                        <p>اینستاگرام: khane_joorab</p>
                         <div class="social-links">
-                            <a href="https://instagram.com/mobile_gohary_mhd" class="social-link" target="_blank">
-                                <i class="fab fa-instagram" style="color: white;"></i>
+                            <a href="https://instagram.com/khane_joorab" class="social-link" target="_blank">
+                                <i class="fab fa-instagram"></i>
                                 <span class="social-text">اینستاگرام</span>
                             </a>
-                            <a href="https://t.me/Hamrahegohary" class="social-link" target="_blank">
-                                <i class="fab fa-telegram" style="color: white;"></i>
-                                <span class="social-text">تلگرام</span>
-                            </a>
-                            <a href="mailto:mostafagohary2456@gmail.com" class="social-link" target="_blank">
-                                <i class="fas fa-envelope" style="color: white;"></i>
-                                <span class="social-text">ایمیل</span>
+                            <a href="https://wa.me/989383300130" class="social-link" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                                <span class="social-text">واتساپ</span>
                             </a>
                         </div>
                     </div>
@@ -1332,23 +1206,19 @@
                 <p>برای دریافت اطلاعات بیشتر، مشاوره رایگان و خرید، از طریق یکی از روش‌های زیر با ما در تماس باشید</p>
                 
                 <div class="contact-buttons">
-                    <a href="https://wa.me/989150103100" class="contact-btn whatsapp" target="_blank">
+                    <a href="https://wa.me/989383300130" class="contact-btn whatsapp" target="_blank">
                         <i class="fab fa-whatsapp"></i> واتساپ
                     </a>
                     
-                    <a href="https://instagram.com/mobile_gohary_mhd" class="contact-btn instagram" target="_blank">
+                    <a href="https://instagram.com/khane_joorab" class="contact-btn instagram" target="_blank">
                         <i class="fab fa-instagram"></i> اینستاگرام
                     </a>
                     
-                    <a href="tel:09150103100" class="contact-btn call">
+                    <a href="tel:09383300130" class="contact-btn call">
                         <i class="fas fa-phone-alt"></i> تماس تلفنی
                     </a>
                     
-                    <a href="mailto:mostafagohary2456@gmail.com" class="contact-btn email">
-                        <i class="fas fa-envelope"></i> ارسال ایمیل
-                    </a>
-                    
-                    <a href="https://www.google.com/maps/search/?api=1&query=قاسم آباد بین شریعتی ۲۵ و ۲۷" class="contact-btn map" target="_blank">
+                    <a href="https://www.google.com/maps/search/?api=1&query=پروما طبقه ۲ واحد ۲۴۲" class="contact-btn map" target="_blank">
                         <i class="fas fa-map-marked-alt"></i> مسیریابی
                     </a>
                 </div>
@@ -1357,27 +1227,59 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section class="features" id="services">
         <div class="section-title">
-            <h2>چرا موبایل گوهری؟</h2>
-            <p>ویژگی‌هایی که ما را به انتخاب اول شما تبدیل می‌کند</p>
+            <h2>محصولات خانه جوراب</h2>
+            <p>انواع جوراب و مشتقات و صندل با کیفیت بالا و قیمت مناسب</p>
         </div>
         
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-mobile-alt"></i>
+                    <i class="fas fa-socks"></i>
                 </div>
-                <h3>فروش موبایل</h3>
-                <p>خرید تلفن همراه نو و کارکرده با بهترین قیمت و کیفیت از برندهای معتبر</p>
+                <h3>انواع جوراب</h3>
+                <p>جوراب‌های زنانه، مردانه و بچگانه در طرح‌ها و جنس‌های مختلف</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-tools"></i>
+                    <i class="fas fa-mitten"></i>
                 </div>
-                <h3>تعمیرات تخصصی</h3>
-                <p>تعمیرات تخصصی انواع موبایل با استفاده از تجهیزات پیشرفته و قطعات اورجینال</p>
+                <h3>پاپوش</h3>
+                <p>پاپوش‌های راحت و زیبا برای استفاده در منزل</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>لباس زیر</h3>
+                <p>انواع لباس زیر با کیفیت و راحت</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hat-cowboy"></i>
+                </div>
+                <h3>کلاه</h3>
+                <p>کلاه‌های متنوع برای فصول مختلف</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-vest"></i>
+                </div>
+                <h3>جوراب شلواری</h3>
+                <p>جوراب شلواری‌های با کیفیت در رنگ‌بندی متنوع</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shoe-prints"></i>
+                </div>
+                <h3>صندل</h3>
+                <p>صندل‌های راحت و شیک برای تمام سنین</p>
             </div>
             
             <div class="feature-card">
@@ -1385,15 +1287,7 @@
                     <i class="fas fa-award"></i>
                 </div>
                 <h3>تضمین کیفیت</h3>
-                <p>استفاده از بهترین برندها و ارائه گارانتی معتبر برای محصولات و خدمات</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-truck"></i>
-                </div>
-                <h3>ارسال درب منزل</h3>
-                <p>ارسال و پرداخت درب منزل برای راحتی شما عزیزان در سراسر کشور</p>
+                <p>استفاده از بهترین مواد اولیه و ارائه محصولات با کیفیت</p>
             </div>
         </div>
     </section>
@@ -1402,7 +1296,7 @@
     <section class="add-to-home-section">
         <div class="add-to-home-container">
             <div class="add-to-home-content">
-                <img src="https://i.ibb.co/ks6RJzpP/logo.png" alt="موبایل گوهری Logo" class="add-to-home-logo">
+                <img src="https://i.ibb.co/rjQwcxR/logo.png" alt="خانه جوراب Logo" class="add-to-home-logo">
                 <div class="add-to-home-text">
                     <h3>افزودن به صفحه اصلی</h3>
                     <p>برای دسترسی سریع‌تر به فروشگاه، این صفحه را به صفحه اصلی دستگاه خود اضافه کنید. با این کار می‌توانید مانند یک اپلیکیشن به فروشگاه ما دسترسی داشته باشید.</p>
@@ -1418,29 +1312,30 @@
     <footer>
         <div class="footer-container">
             <div class="footer-col">
-                <h4>موبایل گوهری</h4>
-                <p>فروش تخصصی موبایل نو و کارکرده، تعمیرات تخصصی و لوازم جانبی با سال‌ها تجربه در ارائه بهترین خدمات و محصولات</p>
+                <h4>خانه جوراب</h4>
+                <p>ارسال به سراسر ایران ✨️</p>
+                <p>مدیریت: خانم عارفی</p>
             </div>
             
             <div class="footer-col">
-                <h4>خدمات ما</h4>
+                <h4>محصولات ما</h4>
                 <ul>
-                    <li><i class="fas fa-mobile-alt"></i> خرید و فروش گوشی کارکرده</li>
-                    <li><i class="fas fa-tools"></i> تعمیرات تخصصی موبایل</li>
-                    <li><i class="fas fa-shopping-bag"></i> فروش موبایل نو</li>
-                    <li><i class="fas fa-headphones"></i> لوازم جانبی موبایل</li>
-                    <li><i class="fas fa-truck"></i> ارسال درب منزل</li>
+                    <li><i class="fas fa-socks"></i> انواع جوراب</li>
+                    <li><i class="fas fa-mitten"></i> پاپوش</li>
+                    <li><i class="fas fa-tshirt"></i> لباس زیر</li>
+                    <li><i class="fas fa-hat-cowboy"></i> کلاه</li>
+                    <li><i class="fas fa-vest"></i> جوراب شلواری</li>
+                    <li><i class="fas fa-shoe-prints"></i> صندل</li>
                 </ul>
             </div>
             
             <div class="footer-col">
                 <h4>تماس با ما</h4>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> قاسم آباد بین شریعتی ۲۵ و ۲۷</li>
-                    <li><i class="fas fa-phone-alt"></i> ۰۹۱۵۰۱۰۳۱۰۰</li>
-                    <li><i class="fab fa-instagram"></i> اینستاگرام: mobile_gohary_mhd</li>
-                    <li><i class="fab fa-telegram"></i> تلگرام: Hamrahegohary@</li>
-                    <li><i class="fas fa-envelope"></i> ایمیل: mostafagohary2456@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> پروما طبقه ۲ واحد ۲۴۲</li>
+                    <li><i class="fas fa-phone-alt"></i> ۰۹۳۸۳۳۰۰۱۳۰</li>
+                    <li><i class="fab fa-instagram"></i> اینستاگرام: khane_joorab</li>
+                    <li><i class="fas fa-user-tie"></i> مدیریت: خانم عارفی</li>
                 </ul>
             </div>
         </div>
@@ -1489,6 +1384,11 @@
                 <button class="modal-btn" id="modalOkBtn">متوجه شدم</button>
             </div>
         </div>
+    </div>
+
+    <!-- Copy Notification -->
+    <div class="copy-notification" id="copyNotification">
+        شماره کارت کپی شد!
     </div>
 
     <script>
