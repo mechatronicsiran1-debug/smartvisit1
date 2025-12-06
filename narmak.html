@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه نارمک | پوشاک بچه‌گانه شیک و با کیفیت</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #ffffff;
+            --secondary: #f9f9f9;
+            --accent: #FF8DA1;
+            --accent-light: #FFC2D1;
+            --accent-blue: #8AC6F8;
+            --accent-blue-light: #B6DCFA;
+            --accent-glow: rgba(255, 141, 161, 0.3);
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --text: #333333;
+            --shadow: 0 5px 25px rgba(255, 141, 161, 0.15);
+            --radius: 12px;
+            --gradient: linear-gradient(135deg, #ffffff 0%, #F5F9FF 100%);
+            --gradient-accent: linear-gradient(135deg, #FF8DA1 0%, #FFC2D1 100%);
+            --gradient-blue: linear-gradient(135deg, #8AC6F8 0%, #B6DCFA 100%);
+            --gradient-card: linear-gradient(145deg, #ffffff 0%, #f9f9f9 100%);
+        }
+        
+        body {
+            background: var(--gradient);
+            color: var(--text);
+            line-height: 1.6;
+            font-family: 'Vazirmatn', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* افکت پس زمینه داینامیک */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 141, 161, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(138, 198, 248, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 30%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Header با افکت نور */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(255, 141, 161, 0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 141, 161, 0.15) 0%, transparent 70%);
+            filter: blur(10px);
+            z-index: -1;
+        }
+        
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 
+                0 0 20px rgba(255, 141, 161, 0.3),
+                0 0 40px rgba(138, 198, 248, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.2);
+            animation: pulse 3s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(255, 141, 161, 0.3), 0 0 40px rgba(138, 198, 248, 0.2); }
+            100% { box-shadow: 0 0 30px rgba(255, 141, 161, 0.4), 0 0 60px rgba(138, 198, 248, 0.3); }
+        }
+        
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 141, 161, 0.2);
+            position: relative;
+        }
+        
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent-blue), transparent);
+            border-radius: 2px;
+        }
+        
+        /* Hero با افکت خاص */
+        .hero {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vw;
+            height: 200vh;
+            background: 
+                radial-gradient(circle at center, rgba(255, 141, 161, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(138, 198, 248, 0.05) 2px, rgba(138, 198, 248, 0.05) 4px);
+            animation: rotate 30s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 141, 161, 0.2);
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-blue);
+            color: var(--text);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: 
+                0 5px 20px rgba(138, 198, 248, 0.3),
+                0 0 30px rgba(138, 198, 248, 0.15);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent), var(--accent-blue));
+            border-radius: 32px;
+            z-index: -1;
+            animation: rotate-border 3s linear infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .slogan-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .slogan-primary {
+            font-size: 1.8rem;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 141, 161, 0.2);
+        }
+        
+        .slogan-secondary {
+            font-size: 1.4rem;
+            font-family: 'Lalezar', cursive;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255, 141, 161, 0.2);
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .btn-primary {
+            background: var(--gradient-blue);
+            color: var(--text);
+            box-shadow: 
+                0 5px 20px rgba(138, 198, 248, 0.3),
+                0 0 30px rgba(138, 198, 248, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 10px 30px rgba(138, 198, 248, 0.4),
+                0 0 40px rgba(138, 198, 248, 0.2);
+        }
+        
+        /* Quote با افکت نور */
+        .quote-section {
+            padding: 3rem 1.5rem;
+            background: linear-gradient(90deg, transparent, rgba(255, 141, 161, 0.1), rgba(138, 198, 248, 0.1), transparent);
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+            border-radius: 20px;
+            margin: 2rem 1.5rem;
+        }
+        
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 141, 161, 0.08) 20%, 
+                rgba(255, 141, 161, 0.12) 50%, 
+                rgba(138, 198, 248, 0.08) 80%, 
+                transparent 100%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .quote-text {
+            font-size: 1.8rem;
+            text-align: center;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(255, 141, 161, 0.2);
+        }
+        
+        /* Features با کارت‌های مدرن */
+        .features {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            background: var(--gradient-card);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 141, 161, 0.15);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            color: var(--text);
+        }
+        
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                0 0 30px rgba(255, 141, 161, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+        
+        .feature-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--accent), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(255, 141, 161, 0.2));
+        }
+        
+        .feature-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #444;
+            font-weight: 700;
+        }
+        
+        .feature-item p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Contact با افکت شیشه‌ای */
+        .contact-section {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 141, 161, 0.2);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            color: var(--text);
+        }
+        
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--accent));
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(255, 141, 161, 0.1);
+        }
+        
+        .contact-item h3 {
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-item a, .contact-item p {
+            color: #444;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        /* کارت شماره حساب */
+        .bank-card {
+            background: var(--gradient-card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 141, 161, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.05),
+                0 0 20px rgba(138, 198, 248, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bank-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent));
+        }
+        
+        .bank-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .bank-card-header h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .copy-btn {
+            background: var(--gradient-accent);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(255, 141, 161, 0.3);
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 141, 161, 0.4);
+        }
+        
+        .card-number {
+            background: rgba(255, 141, 161, 0.1);
+            padding: 1.2rem;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            text-align: center;
+            letter-spacing: 3px;
+            font-family: monospace;
+            color: #444;
+            border: 1px solid rgba(255, 141, 161, 0.2);
+            margin-bottom: 1rem;
+            position: relative;
+            direction: ltr;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-number::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 141, 161, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        .bank-name {
+            color: #666;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        /* اعلان کپی موفق */
+        .copy-notification {
+            position: fixed;
+            top: 100px;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--gradient-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(138, 198, 248, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .copy-notification.show {
+            opacity: 1;
+        }
+        
+        /* Add to Home Button */
+        .add-to-home-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 3rem;
+        }
+        
+        .add-to-home-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            background: var(--gradient-accent);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 
+                0 5px 15px rgba(255, 141, 161, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .add-to-home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 8px 20px rgba(255, 141, 161, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.3);
+        }
+        
+        .quick-contact {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 141, 161, 0.2);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+            color: var(--text);
+        }
+        
+        .quick-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent));
+        }
+        
+        .quick-contact h3 {
+            color: #444;
+            margin-bottom: 1.8rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+        
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.05),
+                0 0 0 1px rgba(255, 255, 255, 0.8);
+        }
+        
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: inherit;
+            border-radius: calc(var(--radius) + 5px);
+            filter: blur(10px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .contact-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .contact-btn:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .contact-btn.instagram { 
+            background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .contact-btn.call { 
+            background: var(--gradient-blue);
+            color: #333;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(255, 141, 161, 0.2);
+            z-index: 2;
+        }
+        
+        /* Modal آموزش Add to Home Screen */
+        .install-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .install-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.2),
+                0 0 30px rgba(255, 141, 161, 0.2);
+            position: relative;
+            animation: modalSlideIn 0.4s ease;
+            border: 2px solid var(--accent);
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(255, 141, 161, 0.2);
+        }
+        
+        .modal-header h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 141, 161, 0.05);
+            border-radius: 10px;
+            border-right: 3px solid var(--accent);
+        }
+        
+        .step-number {
+            background: var(--gradient-accent);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .modal-btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .modal-btn.primary {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: 0 3px 10px rgba(255, 141, 161, 0.3);
+        }
+        
+        .modal-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 141, 161, 0.4);
+        }
+        
+        .modal-btn.secondary {
+            background: #f5f5f5;
+            color: #444;
+            border: 1px solid #ddd;
+        }
+        
+        /* Footer با افکت */
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem 1.5rem 1.5rem;
+            border-top: 1px solid rgba(255, 141, 161, 0.2);
+            position: relative;
+            overflow: hidden;
+            color: var(--text);
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent-blue), transparent);
+        }
+        
+        .copyright {
+            text-align: center;
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .copyright p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .visit-smart-container {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .visit-smart-text {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .visit-smart-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .visit-smart-contact a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .visit-smart-contact a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .visit-smart-contact a:hover::after {
+            width: 100%;
+        }
+        
+        /* Install Prompt با افکت */
+        .install-prompt {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--text);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(138, 198, 248, 0.2);
+            z-index: 1000;
+            display: none;
+            border: 1px solid rgba(255, 141, 161, 0.3);
+            max-width: 350px;
+            animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .install-prompt.show {
+            display: block;
+        }
+        
+        .install-prompt h4 {
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .install-prompt-text {
+            margin-bottom: 1.2rem;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .install-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+        
+        .install-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .install-btn.primary {
+            background: var(--gradient-blue);
+            color: var(--text);
+            box-shadow: 0 3px 10px rgba(138, 198, 248, 0.3);
+        }
+        
+        .install-btn.secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-badge {
+                font-size: 1.1rem;
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .slogan-primary {
+                font-size: 1.5rem;
+            }
+            
+            .slogan-secondary {
+                font-size: 1.2rem;
+            }
+            
+            .quote-text {
+                font-size: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .install-prompt {
+                right: 10px;
+                left: 10px;
+                max-width: calc(100% - 20px);
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .contact-btn {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+            
+            .card-number {
+                font-size: 1.1rem;
+                padding: 1rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+                width: 95%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .quote-section {
+                padding: 2rem 1rem;
+                margin: 2rem 1rem;
+            }
+            
+            .features, .contact-section {
+                padding: 3rem 1rem;
+            }
+            
+            .contact-btn {
+                font-size: 0.9rem;
+                padding: 0.9rem;
+            }
+            
+            .bank-card {
+                padding: 1.5rem;
+            }
+            
+            .copy-notification {
+                top: 80px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .add-to-home-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Animation for elements */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay Background -->
+    <div class="bg-overlay"></div>
+    
+    <!-- اعلان کپی موفق -->
+    <div class="copy-notification" id="copyNotification">
+        <i class="fas fa-check-circle"></i>
+        <span>شماره کارت با موفقیت کپی شد!</span>
+    </div>
+    
+    <!-- Modal آموزش Add to Home -->
+    <div class="install-modal" id="installModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-plus-circle"></i> افزودن به صفحه اصلی</h3>
+                <button class="close-modal" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-step">
+                    <div class="step-number">۱</div>
+                    <div class="step-text">
+                        <strong>در مرورگر خود:</strong> روی دکمه "منو" (سه نقطه یا سه خط) در بالا یا پایین صفحه ضربه بزنید.
+                    </div>
+                </div>
+                <div class="modal-step">
+                    <div class="step-number">۲</div>
+                    <div class="step-text">
+                        <strong>گزینه "Add to Home Screen"</strong> یا "افزودن به صفحه اصلی" را انتخاب کنید.
+                    </div>
+                </div>
+                <div class="modal-step">
+                    <div class="step-number">۳</div>
+                    <div class="step-text">
+                        <strong>نام برنامه را تأیید کنید</strong> و روی "Add" یا "افزودن" ضربه بزنید.
+                    </div>
+                </div>
+                <div class="modal-step">
+                    <div class="step-number">۴</div>
+                    <div class="step-text">
+                        <strong>آیکون فروشگاه نارمک</strong> اکنون در صفحه اصلی دستگاه شما نمایش داده می‌شود!
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn secondary" id="modalCloseBtn">بستن</button>
+                <button class="modal-btn primary" id="modalInstallBtn">متوجه شدم</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://i.ibb.co/JWvNhtwh/logo.jpg" alt="فروشگاه نارمک" class="logo-img">
+                <div class="logo-text">فروشگاه نارمک</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-badge">✨ نارمک | پوشاک بچه‌گانه شیک و با کیفیت ✨</div>
+            <h1>فروشگاه نارمک | بروزترین پوشاک بچه‌گانه</h1>
+            
+            <div class="slogan-container">
+                <div class="slogan-primary">جنس روز به قیمت دیروز</div>
+                <div class="slogan-secondary">شیک بپوش، بازی کن، لبخند بزن</div>
+            </div>
+            
+            <p>با جدیدترین مدل‌های پوشاک بچه‌گانه برای دختران و پسران در خدمت شما هستیم</p>
+            
+            <!-- دکمه افزودن به صفحه اصلی -->
+            <div class="add-to-home-container">
+                <button class="add-to-home-btn" id="addToHomeBtn">
+                    <i class="fas fa-plus-circle"></i>
+                    افزودن به صفحه اصلی
+                </button>
+            </div>
+            
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-phone-alt"></i> تماس با ما
+            </a>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-text">کوچولوی نارمکی شیک بپوش، بازی کن، لبخند بزن</div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-child"></i>
+                </div>
+                <h3>پوشاک بچه‌گانه</h3>
+                <p>ارائه جدیدترین و بروزترین مدل‌های پوشاک بچه‌گانه برای دختران و پسران با کیفیت عالی</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h3>ارسال سریع</h3>
+                <p>تحویل سریع و مطمئن در کمترین زمان ممکن در سراسر کشور</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h3>کیفیت برتر</h3>
+                <p>تضمین کیفیت و اصالت تمامی محصولات با بهترین مواد اولیه و دوخت</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <!-- شماره کارت بانکی -->
+            <div class="bank-card">
+                <div class="bank-card-header">
+                    <h3><i class="fas fa-credit-card"></i> شماره کارت بانکی</h3>
+                    <button class="copy-btn" id="copyCardBtn">
+                        <i class="far fa-copy"></i> کپی شماره کارت
+                    </button>
+                </div>
+                <div class="card-number" id="cardNumber">
+                    <span>6037 6917 8310 1256</span>
+                    <i class="fas fa-copy copy-icon"></i>
+                </div>
+                <p class="bank-name">بانک صادرات</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> آدرس فروشگاه</h3>
+                    <p>قاسم آباد، چهارراه مخابرات، شریعتی ۱۹، روبروی فروشگاه رفاه، پلاک ۴۴۳، فروشگاه نارمک</p>
+                    <a href="https://maps.google.com/?q=قاسم آباد چهارراه مخابرات شریعتی ۱۹ روبروی فروشگاه رفاه پلاک 443 فروشگاه نارمک" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i> مسیریابی در نقشه
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <h3><i class="fas fa-phone-alt"></i> تماس تلفنی</h3>
+                    <a href="tel:05136622082">
+                        <i class="fas fa-phone"></i> ۰۵۱-۳۶۶۲۲۰۸۲
+                    </a>
+                    <a href="tel:09302158559">
+                        <i class="fas fa-mobile-alt"></i> ۰۹۳۰۲۱۵۸۵۵۹
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <h3><i class="fas fa-users"></i> شبکه‌های اجتماعی</h3>
+                    <a href="https://instagram.com/Narmak.clothes" target="_blank">
+                        <i class="fab fa-instagram"></i> اینستاگرام: Narmak.clothes
+                    </a>
+                    <p>برای مشاهده جدیدترین مدل‌ها و تخفیف‌های ویژه ما را دنبال کنید</p>
+                </div>
+            </div>
+            
+            <div class="quick-contact">
+                <h3>ارتباط سریع</h3>
+                <div class="contact-buttons">
+                    <a href="https://instagram.com/Narmak.clothes" class="contact-btn instagram" target="_blank">
+                        <i class="fab fa-instagram"></i> اینستاگرام
+                    </a>
+                    
+                    <a href="tel:05136622082" class="contact-btn call">
+                        <i class="fas fa-phone-alt"></i> تماس تلفنی
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">
+            <p>تمامی حقوق متعلق به فروشگاه نارمک می‌باشد ۱۴۰۴</p>
+            <p>فروشگاه نارمک - بروزترین پوشاک بچه‌گانه | ۱۴۰۴ ©</p>
+            <p>شعار ما: جنس روز به قیمت دیروز | شیک بپوش، بازی کن، لبخند بزن</p>
+        </div>
+        
+        <div class="visit-smart-container">
+            <p class="visit-smart-text">این صفحه توسط Visit Smart طراحی شده است. جهت سفارش طراحی صفحات مشابه تماس بگیرید:</p>
+            <div class="visit-smart-contact">
+                <a href="tel:09389793809">۰۹۳۸۹۷۹۳۸۰۹</a>
+                <a href="tel:09158148021">۰۹۱۵۸۱۴۸۰۲۱</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Install Prompt -->
+    <div class="install-prompt" id="installPrompt">
+        <h4>نصب اپلیکیشن فروشگاه نارمک</h4>
+        <div class="install-prompt-text">
+            برای دسترسی سریع‌تر و آفلاین به فروشگاه نارمک، اپلیکیشن را نصب کنید.
+        </div>
+        <div class="install-buttons">
+            <button class="install-btn secondary" id="cancelInstallBtn">بعداً</button>
+            <button class="install-btn primary" id="installBtn">نصب اپلیکیشن</button>
+        </div>
+    </div>
+
+    <script>
+        // متغیرهای اصلی
+        let deferredPrompt;
+        let installPrompt = document.getElementById('installPrompt');
+        let installBtn = document.getElementById('installBtn');
+        let cancelInstallBtn = document.getElementById('cancelInstallBtn');
+        let copyCardBtn = document.getElementById('copyCardBtn');
+        let cardNumber = document.getElementById('cardNumber');
+        let copyNotification = document.getElementById('copyNotification');
+        let addToHomeBtn = document.getElementById('addToHomeBtn');
+        let installModal = document.getElementById('installModal');
+        let closeModalBtn = document.getElementById('closeModalBtn');
+        let modalCloseBtn = document.getElementById('modalCloseBtn');
+        let modalInstallBtn = document.getElementById('modalInstallBtn');
+        
+        // تابع نمایش اعلان کپی موفق
+        function showCopyNotification() {
+            copyNotification.classList.add('show');
+            
+            // مخفی کردن اتوماتیک بعد از 2 ثانیه
+            setTimeout(() => {
+                copyNotification.classList.remove('show');
+            }, 2000);
+        }
+        
+        // تابع کپی شماره کارت
+        function copyCardNumber() {
+            const cardText = '6037691783101256';
+            
+            // استفاده از Clipboard API
+            navigator.clipboard.writeText(cardText).then(() => {
+                console.log('شماره کارت کپی شد: ', cardText);
+                showCopyNotification();
+                
+                // افکت روی دکمه کپی
+                copyCardBtn.innerHTML = '<i class="fas fa-check"></i> کپی شد!';
+                copyCardBtn.style.background = 'var(--gradient-blue)';
+                
+                // بازگشت به حالت اولیه بعد از 2 ثانیه
+                setTimeout(() => {
+                    copyCardBtn.innerHTML = '<i class="far fa-copy"></i> کپی شماره کارت';
+                    copyCardBtn.style.background = 'var(--gradient-accent)';
+                }, 2000);
+                
+            }).catch(err => {
+                console.error('خطا در کپی کردن: ', err);
+                
+                // روش قدیمی برای مرورگرهای قدیمی
+                const textArea = document.createElement('textarea');
+                textArea.value = cardText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                showCopyNotification();
+            });
+        }
+        
+        // رویداد کلیک برای کپی شماره کارت
+        copyCardBtn.addEventListener('click', copyCardNumber);
+        cardNumber.addEventListener('click', copyCardNumber);
+        
+        // تابع نمایش مودال آموزش افزودن به صفحه اصلی
+        function showInstallModal() {
+            installModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول صفحه اصلی
+        }
+        
+        // تابع بستن مودال
+        function hideInstallModal() {
+            installModal.classList.remove('show');
+            document.body.style.overflow = 'auto'; // بازگرداندن اسکرول
+        }
+        
+        // رویداد کلیک برای دکمه افزودن به صفحه اصلی
+        addToHomeBtn.addEventListener('click', showInstallModal);
+        
+        // رویداد کلیک برای بستن مودال
+        closeModalBtn.addEventListener('click', hideInstallModal);
+        modalCloseBtn.addEventListener('click', hideInstallModal);
+        modalInstallBtn.addEventListener('click', hideInstallModal);
+        
+        // بستن مودال با کلیک خارج از آن
+        installModal.addEventListener('click', function(e) {
+            if (e.target === installModal) {
+                hideInstallModal();
+            }
+        });
+        
+        // تابع نمایش پنجره نصب
+        function showInstallPrompt() {
+            installPrompt.classList.add('show');
+            
+            // مخفی کردن اتوماتیک بعد از 15 ثانیه
+            setTimeout(() => {
+                if (installPrompt.classList.contains('show')) {
+                    hideInstallPrompt();
+                }
+            }, 15000);
+        }
+        
+        // تابع مخفی کردن پنجره نصب
+        function hideInstallPrompt() {
+            installPrompt.classList.remove('show');
+        }
+        
+        // رویداد beforeinstallprompt - وقتی مرورگر آماده نصب است
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // جلوگیری از نمایش خودکار
+            e.preventDefault();
+            
+            // ذخیره رویداد برای استفاده بعدی
+            deferredPrompt = e;
+            
+            // نمایش پنجره ما بعد از 3 ثانیه
+            setTimeout(() => {
+                if (deferredPrompt && !installPrompt.classList.contains('show')) {
+                    showInstallPrompt();
+                }
+            }, 3000);
+            
+            // رویداد کلیک روی دکمه نصب
+            installBtn.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    // نمایش پنجره نصب مرورگر
+                    deferredPrompt.prompt();
+                    
+                    // منتظر پاسخ کاربر
+                    const { outcome } = await deferredPrompt.userChoice;
+                    
+                    // پاک کردن رویداد
+                    deferredPrompt = null;
+                    
+                    // مخفی کردن پنجره ما
+                    hideInstallPrompt();
+                }
+            });
+        });
+        
+        // رویداد نصب موفق
+        window.addEventListener('appinstalled', () => {
+            deferredPrompt = null;
+            hideInstallPrompt();
+        });
+        
+        // دکمه بستن
+        cancelInstallBtn.addEventListener('click', hideInstallPrompt);
+        
+        // مخفی کردن پنجره با کلیک خارج
+        document.addEventListener('click', (e) => {
+            if (installPrompt.classList.contains('show') && 
+                !installPrompt.contains(e.target)) {
+                hideInstallPrompt();
+            }
+        });
+        
+        // اسکرول نرم
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // انیمیشن المان‌ها هنگام اسکرول
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+        
+        // مشاهده المان‌ها برای انیمیشن
+        document.querySelectorAll('.feature-item, .contact-item, .quick-contact, .bank-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        
+        // افکت پارالاکس برای پس‌زمینه
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const bgOverlay = document.querySelector('.bg-overlay');
+            bgOverlay.style.transform = `translateY(${scrolled * 0.1}px)`;
+        });
+        
+        // بهبود عملکرد تلفن‌های لمسی
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        // جلوگیری از زوم دوباره روی ورودی‌ها در موبایل
+        document.addEventListener('dblclick', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // افکت‌های ورودی
+        document.addEventListener('DOMContentLoaded', () => {
+            // اعمال انیمیشن ورود برای المان‌های اصلی
+            setTimeout(() => {
+                document.querySelector('.hero-container').style.opacity = '1';
+                document.querySelector('.hero-container').style.transform = 'translateY(0)';
+            }, 100);
+            
+            // نمایش خودکار مودال آموزش در اولین بازدید (فقط در موبایل)
+            if (window.innerWidth <= 768) {
+                const hasSeenModal = localStorage.getItem('hasSeenInstallModal');
+                if (!hasSeenModal) {
+                    setTimeout(() => {
+                        showInstallModal();
+                        localStorage.setItem('hasSeenInstallModal', 'true');
+                    }, 5000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

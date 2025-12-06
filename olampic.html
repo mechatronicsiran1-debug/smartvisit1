@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشعل المپیک | فروشگاه لوازم ورزشی</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #000000;
+            --secondary: #111111;
+            --accent: #FF5F15;
+            --accent-light: #FF8A3D;
+            --accent-orange: #FF6B00;
+            --accent-orange-light: #FF8A3D;
+            --accent-glow: rgba(255, 95, 21, 0.4);
+            --white: #ffffff;
+            --light-gray: #f0f0f0;
+            --text: #ffffff;
+            --shadow: 0 5px 25px rgba(255, 95, 21, 0.3);
+            --radius: 12px;
+            --gradient: linear-gradient(135deg, #000000 0%, #111111 100%);
+            --gradient-accent: linear-gradient(135deg, #FF5F15 0%, #FF8A3D 100%);
+            --gradient-orange: linear-gradient(135deg, #FF6B00 0%, #FF8A3D 100%);
+            --gradient-card: linear-gradient(145deg, #1a1a1a 0%, #222222 100%);
+            --instagram: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+        
+        body {
+            background: var(--gradient);
+            color: var(--text);
+            line-height: 1.6;
+            font-family: 'Vazirmatn', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* افکت پس زمینه داینامیک */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 95, 21, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 107, 0, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 30%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* دکمه افزودن به صفحه اصلی */
+        .add-to-home-container {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .add-to-home-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 95, 21, 0.1);
+            color: var(--accent-light);
+            border: 1px solid rgba(255, 95, 21, 0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .add-to-home-btn:hover {
+            background: rgba(255, 95, 21, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 95, 21, 0.2);
+        }
+        
+        /* مودال آموزش افزودن به صفحه اصلی */
+        .add-to-home-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .add-to-home-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--gradient-card);
+            width: 90%;
+            max-width: 400px;
+            border-radius: var(--radius);
+            padding: 2rem;
+            border: 1px solid rgba(255, 95, 21, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 95, 21, 0.3);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+        
+        .add-to-home-modal.show .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-header h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .close-modal {
+            background: transparent;
+            border: none;
+            color: var(--accent-light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--white);
+            transform: rotate(90deg);
+        }
+        
+        .modal-steps {
+            margin-bottom: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .step-number {
+            background: var(--gradient-orange);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .step-text {
+            flex: 1;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .modal-footer {
+            text-align: center;
+        }
+        
+        .modal-footer p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 1rem;
+        }
+        
+        /* Header با افکت نور */
+        header {
+            background: rgba(17, 17, 17, 0.95);
+            padding: 1rem 0 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(255, 95, 21, 0.2);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 95, 21, 0.2) 0%, transparent 70%);
+            filter: blur(10px);
+            z-index: -1;
+        }
+        
+        .logo-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 
+                0 0 20px rgba(255, 95, 21, 0.5),
+                0 0 40px rgba(255, 107, 0, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            animation: pulse 3s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(255, 95, 21, 0.5), 0 0 40px rgba(255, 107, 0, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(255, 95, 21, 0.6), 0 0 60px rgba(255, 107, 0, 0.4); }
+        }
+        
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent), var(--accent-orange-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 95, 21, 0.3);
+            position: relative;
+        }
+        
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent-orange), transparent);
+            border-radius: 2px;
+        }
+        
+        /* Hero با افکت خاص */
+        .hero {
+            padding: 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vw;
+            height: 200vh;
+            background: 
+                radial-gradient(circle at center, rgba(255, 95, 21, 0.15) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 95, 21, 0.05) 2px, rgba(255, 95, 21, 0.05) 4px);
+            animation: rotate 30s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent), var(--accent-orange-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 95, 21, 0.4);
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-orange);
+            color: var(--white);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: 
+                0 5px 20px rgba(255, 95, 21, 0.4),
+                0 0 30px rgba(255, 95, 21, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent-orange), var(--accent), var(--accent-orange));
+            border-radius: 32px;
+            z-index: -1;
+            animation: rotate-border 3s linear infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.8;
+            color: var(--light-gray);
+        }
+        
+        /* اینستاگرام در بخش Hero */
+        .instagram-hero {
+            margin: 2rem 0;
+        }
+        
+        .instagram-hero-link {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            gap: 8px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 95, 21, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .instagram-hero-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 95, 21, 0.2);
+        }
+        
+        .instagram-hero-icon {
+            background: var(--instagram);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(64, 93, 230, 0.3);
+        }
+        
+        .instagram-hero-text {
+            text-align: center;
+        }
+        
+        .instagram-hero-text strong {
+            display: block;
+            color: white;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+        }
+        
+        .instagram-hero-text span {
+            display: block;
+            color: var(--accent-light);
+            font-size: 0.95rem;
+            direction: ltr;
+            font-weight: 600;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .btn-primary {
+            background: var(--gradient-orange);
+            color: var(--white);
+            box-shadow: 
+                0 5px 20px rgba(255, 95, 21, 0.4),
+                0 0 30px rgba(255, 95, 21, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 10px 30px rgba(255, 95, 21, 0.6),
+                0 0 40px rgba(255, 95, 21, 0.3);
+        }
+        
+        /* Quote با افکت نور */
+        .quote-section {
+            padding: 3rem 1.5rem;
+            background: linear-gradient(90deg, transparent, rgba(255, 95, 21, 0.1), rgba(255, 107, 0, 0.1), transparent);
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+        
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 95, 21, 0.05) 20%, 
+                rgba(255, 95, 21, 0.1) 50%, 
+                rgba(255, 107, 0, 0.05) 80%, 
+                transparent 100%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .quote-text {
+            font-size: 1.8rem;
+            text-align: center;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent), var(--accent-orange-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(255, 95, 21, 0.3);
+        }
+        
+        /* Contact با افکت شیشه‌ای */
+        .contact-section {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .contact-header h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent), var(--accent-orange-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 95, 21, 0.3);
+        }
+        
+        .contact-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-orange), var(--accent));
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(255, 95, 21, 0.1);
+        }
+        
+        .contact-item h3 {
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-item a, .contact-item p {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent-light);
+            transform: translateX(5px);
+        }
+        
+        /* کارت شماره تماس ویژه */
+        .contact-card-special {
+            background: var(--gradient-card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 95, 21, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 95, 21, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .contact-card-special::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent));
+        }
+        
+        .contact-card-special-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-card-special-header h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .phone-numbers {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .phone-number-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .phone-number-item strong {
+            color: var(--accent-light);
+            font-size: 0.95rem;
+        }
+        
+        .phone-number {
+            background: rgba(255, 95, 21, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            text-align: center;
+            direction: ltr;
+            color: var(--accent-light);
+            border: 1px solid rgba(255, 95, 21, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .phone-number:hover {
+            background: rgba(255, 95, 21, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .phone-number i {
+            color: var(--accent);
+        }
+        
+        /* Features با کارت‌های مدرن */
+        .features {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        
+        .features-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .features-header h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent), var(--accent-orange-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 95, 21, 0.3);
+        }
+        
+        .features-header p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            background: var(--gradient-card);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-orange), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(255, 95, 21, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--accent), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(255, 95, 21, 0.3));
+        }
+        
+        .feature-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+        
+        .feature-item p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        /* Footer با افکت */
+        footer {
+            background: rgba(17, 17, 17, 0.9);
+            padding: 3rem 1.5rem 1.5rem;
+            border-top: 1px solid rgba(255, 95, 21, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent-orange), transparent);
+        }
+        
+        .copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .copyright p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .visit-smart-container {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .visit-smart-text {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+        
+        .visit-smart-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .visit-smart-contact a {
+            color: var(--accent-orange-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .visit-smart-contact a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange);
+            transition: width 0.3s;
+        }
+        
+        .visit-smart-contact a:hover::after {
+            width: 100%;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-badge {
+                font-size: 1.1rem;
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .quote-text {
+                font-size: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .phone-numbers {
+                flex-direction: column;
+            }
+            
+            .phone-number {
+                font-size: 1.1rem;
+                padding: 0.9rem;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .logo-img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+            
+            .instagram-hero-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2.5rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .quote-section {
+                padding: 2rem 1rem;
+            }
+            
+            .features, .contact-section {
+                padding: 3rem 1rem;
+            }
+            
+            .contact-item, .contact-card-special {
+                padding: 1.5rem;
+            }
+            
+            .add-to-home-btn {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+            }
+            
+            .instagram-hero-link {
+                padding: 0.6rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay Background -->
+    <div class="bg-overlay"></div>
+    
+    <!-- مودال آموزش افزودن به صفحه اصلی -->
+    <div class="add-to-home-modal" id="addToHomeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-plus-circle"></i> افزودن به صفحه اصلی</h3>
+                <button class="close-modal" id="closeModalBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">در مرورگر خود، روی دکمه منو (سه نقطه) در بالا سمت راست کلیک کنید</div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">گزینه "Add to Home Screen" یا "نصب برنامه" را انتخاب کنید</div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">روی "Add" یا "افزودن" کلیک کنید تا اپلیکیشن به صفحه اصلی اضافه شود</div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <p>با این کار دسترسی سریع‌تری به فروشگاه مشعل المپیک خواهید داشت</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://i.ibb.co/WWM0GD4P/image.png" alt="مشعل المپیک" class="logo-img">
+                <div class="logo-text">مشعل المپیک</div>
+            </div>
+            
+            <div class="add-to-home-container">
+                <a href="#" class="add-to-home-btn" id="addToHomeBtn">
+                    <i class="fas fa-plus"></i>
+                    افزودن به صفحه اصلی
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-badge">🔥تامین کننده تجهیزات ورزشی🔥</div>
+            <h1>مشعل المپیک | فروشگاه لوازم ورزشی</h1>
+            <p>ارائه پوشاک، کفش و لوازم ورزشی (رزمی، بدنسازی، فوتبال، والیبال و ...) با بهترین کیفیت و مناسب‌ترین قیمت</p>
+            
+            <!-- اینستاگرام در بخش Hero -->
+            <div class="instagram-hero">
+                <a href="https://instagram.com/revon.fit" class="instagram-hero-link" target="_blank">
+                    <div class="instagram-hero-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="instagram-hero-text">
+                        <strong>اینستاگرام ما</strong>
+                        <span>@revon.fit</span>
+                    </div>
+                </a>
+            </div>
+            
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-phone-alt"></i> تماس با ما
+            </a>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-text">مشعل المپیک | شعله اشتیاق به ورزش</div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2>راه‌های ارتباطی</h2>
+                <p>برای خرید و دریافت مشاوره رایگان، با ما تماس بگیرید</p>
+            </div>
+            
+            <!-- کارت شماره تماس ویژه -->
+            <div class="contact-card-special">
+                <div class="contact-card-special-header">
+                    <h3><i class="fas fa-phone-volume"></i> تماس تلفنی</h3>
+                </div>
+                
+                <div class="phone-numbers">
+                    <div class="phone-number-item">
+                        <strong>شماره تلفن ثابت</strong>
+                        <a href="tel:05136618811" class="phone-number">
+                            <i class="fas fa-phone"></i>
+                            051-36618811
+                        </a>
+                    </div>
+                    
+                    <div class="phone-number-item">
+                        <strong>شماره موبایل</strong>
+                        <a href="tel:09157017112" class="phone-number">
+                            <i class="fas fa-mobile-alt"></i>
+                            0915-701-7112
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> آدرس فروشگاه</h3>
+                    <p>شهرک غرب - چهارراه مخابرات - سمت فروشگاه رفاه - نبش شریعتی 22</p>
+                    <p><strong>ورزشی مشعل المپیک</strong></p>
+                    <a href="https://maps.google.com/?q=شهرک غرب چهارراه مخابرات نبش شریعتی ۲۲ مشعل المپیک" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i> مسیریابی در نقشه
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <h3><i class="fas fa-info-circle"></i> خدمات ما</h3>
+                    <p>مشاوره رایگان برای انتخاب لوازم ورزشی</p>
+                    <p>ضمانت اصالت کالا</p>
+                    <p>قیمت‌های رقابتی و مناسب</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="features-header">
+            <h2>محصولات ما</h2>
+            <p>با تنوعی بی‌نظیر از تجهیزات ورزشی در خدمت شما هستیم</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>لوازم بدنسازی</h3>
+                <p>انواع دمبل، هالتر و لوازم بدنسازی</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-futbol"></i>
+                </div>
+                <h3>تجهیزات ورزش‌های توپی</h3>
+                <p>توپ فوتبال، والیبال، بسکتبال و سایر توپ‌های ورزشی</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-user-ninja"></i>
+                </div>
+                <h3>لوازم ورزش‌های رزمی</h3>
+                <p>دستکش، کلاه و سایر تجهیزات ورزش‌های رزمی</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>پوشاک ورزشی</h3>
+                <p>لباس و کفش ورزشی برای آقایان و بانوان</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">
+            <p>تمامی حقوق متعلق به فروشگاه مشعل المپیک می‌باشد © ۱۴۰۴</p>
+            <p>مشعل المپیک - تامین کننده تجهیزات ورزشی | ۱۴۰۴ ©</p>
+        </div>
+        
+        <div class="visit-smart-container">
+            <p class="visit-smart-text">این صفحه توسط Visit Smart طراحی شده است. جهت سفارش طراحی صفحات مشابه تماس بگیرید:</p>
+            <div class="visit-smart-contact">
+                <a href="tel:09389793809">۰۹۳۸۹۷۹۳۸۰۹</a>
+                <a href="tel:09158148021">۰۹۱۵۸۱۴۸۰۲۱</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // متغیرهای اصلی
+        let copyNotification = document.createElement('div');
+        copyNotification.className = 'copy-notification';
+        copyNotification.id = 'copyNotification';
+        copyNotification.innerHTML = '<i class="fas fa-check-circle"></i><span>شماره تلفن با موفقیت کپی شد!</span>';
+        document.body.appendChild(copyNotification);
+        
+        // متغیرهای مودال
+        const addToHomeModal = document.getElementById('addToHomeModal');
+        const addToHomeBtn = document.getElementById('addToHomeBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        
+        // نمایش مودال
+        addToHomeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            addToHomeModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // جلوگیری از اسکرول هنگام نمایش مودال
+        });
+        
+        // بستن مودال
+        function closeModal() {
+            addToHomeModal.classList.remove('show');
+            document.body.style.overflow = 'auto'; // فعال کردن مجدد اسکرول
+        }
+        
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        // بستن مودال با کلیک خارج از آن
+        addToHomeModal.addEventListener('click', function(e) {
+            if (e.target === addToHomeModal) {
+                closeModal();
+            }
+        });
+        
+        // بستن مودال با کلید Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && addToHomeModal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+        
+        // تابع نمایش اعلان کپی موفق
+        function showCopyNotification(text) {
+            copyNotification.querySelector('span').textContent = text || 'محتوا با موفقیت کپی شد!';
+            copyNotification.classList.add('show');
+            
+            // مخفی کردن اتوماتیک بعد از 2 ثانیه
+            setTimeout(() => {
+                copyNotification.classList.remove('show');
+            }, 2000);
+        }
+        
+        // رویداد کلیک برای کپی شماره تلفن
+        document.querySelectorAll('.phone-number').forEach(phoneNumber => {
+            phoneNumber.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                
+                const phoneText = this.textContent.replace(/[^\d+]/g, '').trim();
+                
+                // استفاده از Clipboard API
+                navigator.clipboard.writeText(phoneText).then(() => {
+                    console.log('شماره تلفن کپی شد: ', phoneText);
+                    showCopyNotification('شماره تلفن با موفقیت کپی شد!');
+                    
+                    // افکت روی شماره
+                    const originalBg = this.style.background;
+                    this.style.background = 'rgba(255, 95, 21, 0.3)';
+                    
+                    // بازگشت به حالت اولیه بعد از 1 ثانیه
+                    setTimeout(() => {
+                        this.style.background = originalBg;
+                    }, 1000);
+                    
+                }).catch(err => {
+                    console.error('خطا در کپی کردن: ', err);
+                    showCopyNotification('کپی با موفقیت انجام شد!');
+                });
+            });
+        });
+        
+        // اسکرول نرم
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // انیمیشن المان‌ها هنگام اسکرول
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // مشاهده المان‌ها برای انیمیشن
+        document.querySelectorAll('.feature-item, .contact-item, .contact-card-special').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        
+        // افکت پارالاکس برای پس‌زمینه
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const bgOverlay = document.querySelector('.bg-overlay');
+            bgOverlay.style.transform = `translateY(${scrolled * 0.1}px)`;
+        });
+        
+        // بهبود عملکرد تلفن‌های لمسی
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        // استایل برای اعلان کپی موفق
+        const style = document.createElement('style');
+        style.textContent = `
+            .copy-notification {
+                position: fixed;
+                top: 100px;
+                right: 50%;
+                transform: translateX(50%);
+                background: linear-gradient(135deg, #FF6B00 0%, #FF8A3D 100%);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 30px;
+                box-shadow: 0 10px 30px rgba(255, 95, 21, 0.4);
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                opacity: 0;
+                transition: opacity 0.3s;
+                pointer-events: none;
+            }
+            
+            .copy-notification.show {
+                opacity: 1;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

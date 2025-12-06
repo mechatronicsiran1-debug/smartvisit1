@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافه بوتیک | پوشاک مردانه با کیفیت و سود پایین</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #000000;
+            --secondary: #111111;
+            --accent: #ff0000;
+            --accent-light: #ff3333;
+            --accent-glow: rgba(255, 0, 0, 0.4);
+            --white: #ffffff;
+            --light-gray: #f0f0f0;
+            --text: #ffffff;
+            --shadow: 0 5px 25px rgba(255, 0, 0, 0.2);
+            --radius: 12px;
+            --gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            --gradient-red: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            --gradient-card: linear-gradient(145deg, #1a1a1a 0%, #222222 100%);
+        }
+        
+        body {
+            background: var(--gradient);
+            color: var(--text);
+            line-height: 1.6;
+            font-family: 'Vazirmatn', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* افکت پس زمینه داینامیک */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Header با افکت نور */
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 1.5rem;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 0, 0, 0.2) 0%, transparent 70%);
+            filter: blur(10px);
+            z-index: -1;
+        }
+        
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 
+                0 0 20px var(--accent-glow),
+                0 0 40px rgba(255, 0, 0, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            animation: pulse 3s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(255, 0, 0, 0.3); }
+            100% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(255, 0, 0, 0.4); }
+        }
+        
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--white), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            border-radius: 2px;
+        }
+        
+        /* Hero با افکت خاص */
+        .hero {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vw;
+            height: 200vh;
+            background: 
+                radial-gradient(circle at center, rgba(255, 0, 0, 0.15) 0%, transparent 50%),
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.03) 2px, rgba(255, 255, 255, 0.03) 4px);
+            animation: rotate 30s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--white), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-red);
+            color: var(--white);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: 
+                0 5px 20px rgba(255, 0, 0, 0.4),
+                0 0 30px rgba(255, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent), var(--white), var(--accent));
+            border-radius: 32px;
+            z-index: -1;
+            animation: rotate-border 3s linear infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            line-height: 1.8;
+            color: var(--light-gray);
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .btn-primary {
+            background: var(--gradient-red);
+            color: var(--white);
+            box-shadow: 
+                0 5px 20px rgba(255, 0, 0, 0.4),
+                0 0 30px rgba(255, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 10px 30px rgba(255, 0, 0, 0.6),
+                0 0 40px rgba(255, 0, 0, 0.3);
+        }
+        
+        /* Quote با افکت نور */
+        .quote-section {
+            padding: 3rem 1.5rem;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+        
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 0, 0, 0.05) 20%, 
+                rgba(255, 0, 0, 0.1) 50%, 
+                rgba(255, 0, 0, 0.05) 80%, 
+                transparent 100%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .quote-text {
+            font-size: 1.8rem;
+            text-align: center;
+            font-family: 'Lalezar', cursive;
+            background: linear-gradient(45deg, var(--accent-light), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        /* Features با کارت‌های مدرن */
+        .features {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            background: var(--gradient-card);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(255, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
+        }
+        
+        .feature-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+        
+        .feature-item p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        /* Contact با افکت شیشه‌ای */
+        .contact-section {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-red);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(255, 0, 0, 0.1);
+        }
+        
+        .contact-item h3 {
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-item a, .contact-item p {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent-light);
+            transform: translateX(5px);
+        }
+        
+        .quick-contact {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quick-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-red);
+        }
+        
+        .quick-contact h3 {
+            color: var(--white);
+            margin-bottom: 1.8rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+        
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .contact-btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .contact-btn.whatsapp { 
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .contact-btn.instagram { 
+            background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            box-shadow: 0 5px 20px rgba(131, 58, 180, 0.3);
+        }
+        
+        .contact-btn.call { 
+            background: var(--gradient-red);
+            color: white;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* بخش افزودن به صفحه اصلی */
+        .add-to-home-section {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        
+        .add-to-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-red);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .add-to-home-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+        }
+        
+        /* مودال آموزش افزودن به صفحه اصلی */
+        .add-to-home-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .add-to-home-modal.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background: var(--gradient-card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            max-width: 400px;
+            width: 100%;
+            border: 2px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.2);
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .modal-header h3 {
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+        }
+        
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-body p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .modal-steps {
+            list-style: none;
+            padding-right: 1.5rem;
+        }
+        
+        .modal-steps li {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.8rem;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .modal-steps li::before {
+            content: '•';
+            color: var(--accent);
+            font-size: 1.5rem;
+            position: absolute;
+            right: -1.5rem;
+            top: -0.3rem;
+        }
+        
+        .modal-footer {
+            text-align: center;
+        }
+        
+        .modal-btn {
+            background: var(--gradient-red);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+        }
+        
+        /* Footer با افکت */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 3rem 1.5rem 1.5rem;
+            border-top: 1px solid rgba(255, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        .copyright {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .copyright p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .visit-smart-container {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .visit-smart-text {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+        
+        .visit-smart-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .visit-smart-contact a {
+            color: var(--accent-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .visit-smart-contact a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .visit-smart-contact a:hover::after {
+            width: 100%;
+        }
+        
+        /* Install Prompt حذف شده */
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-badge {
+                font-size: 1.1rem;
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .quote-text {
+                font-size: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .contact-btn {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+            
+            .modal-content {
+                max-width: 90%;
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .quote-section {
+                padding: 2rem 1rem;
+            }
+            
+            .features, .contact-section {
+                padding: 3rem 1rem;
+            }
+            
+            .contact-btn {
+                font-size: 0.9rem;
+                padding: 0.9rem;
+            }
+            
+            .add-to-home-btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay Background -->
+    <div class="bg-overlay"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://i.ibb.co/Mx6cnfSJ/logo.png" alt="کافه بوتیک" class="logo-img">
+                <div class="logo-text">کافه بوتیک</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-badge">✨با کافه بوتیک همیشه بدرخش✨</div>
+            <h1>کافه بوتیک | پوشاک مردانه با کیفیت و سود پایین</h1>
+            <p>با بیش از ۲۳ سال سابقه درخشان در زمینه عرضه پوشاک مردانه</p>
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-phone-alt"></i> تماس با ما
+            </a>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-text">جنس‌ با کیفیت و سود پایین، شعار همیشگی ما</div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>۲۳ سال سابقه</h3>
+                <p>با تجربه و سابقه درخشان در صنعت پوشاک با کیفیت برتر</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <h3>ارسال فوری</h3>
+                <p>تحویل سریع و مطمئن در کمترین زمان ممکن در سراسر کشور</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>تضمین کیفیت</h3>
+                <p>تضمین کیفیت و اصالت تمامی محصولات با گارانتی بازگشت</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> آدرس فروشگاه</h3>
+                    <p>چهارراه جانباز، مجتمع تجاری کیان سنتر یک، طبقه مثبت دو، واحد ۲۳۰، فروشگاه کافه بوتیک</p>
+                    <a href="https://maps.google.com/?q=چهارراه جانباز، مجتمع تجاری کیان سنتر یک، طبقه مثبت دو، واحد ۲۳۰" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i> مسیریابی در نقشه
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <h3><i class="fas fa-phone-alt"></i> تماس تلفنی</h3>
+                    <a href="tel:09150805600">
+                        <i class="fas fa-mobile-alt"></i> ۰۹۱۵۰۸۰۵۶۰۰
+                    </a>
+                    <a href="tel:05136092887">
+                        <i class="fas fa-phone"></i> ۰۵۱۳۶۰۹۲۸۸۷
+                    </a>
+                </div>
+            </div>
+            
+            <div class="quick-contact">
+                <h3>ارتباط سریع</h3>
+                <div class="contact-buttons">
+                    <a href="https://wa.me/989150805600" class="contact-btn whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> پیام در واتساپ
+                    </a>
+                    
+                    <a href="https://instagram.com/cafe._boutique" class="contact-btn instagram" target="_blank">
+                        <i class="fab fa-instagram"></i> اینستاگرام
+                    </a>
+                    
+                    <a href="tel:09150805600" class="contact-btn call">
+                        <i class="fas fa-phone-alt"></i> تماس تلفنی
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- افزودن به صفحه اصلی -->
+    <section class="add-to-home-section">
+        <a href="#" class="add-to-home-btn" id="addToHomeBtn">
+            <i class="fas fa-plus-circle"></i>
+            افزودن به صفحه اصلی موبایل
+        </a>
+    </section>
+
+    <!-- مودال آموزش افزودن به صفحه اصلی -->
+    <div class="add-to-home-modal" id="addToHomeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>آموزش افزودن به صفحه اصلی</h3>
+                <button class="close-modal" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>برای افزودن این صفحه به صفحه اصلی موبایل خود، مراحل زیر را دنبال کنید:</p>
+                <ul class="modal-steps">
+                    <li>در مرورگر خود روی منوی سه نقطه (یا سه خط) کلیک کنید</li>
+                    <li>گزینه "Add to Home screen" یا "نصب اپ" را انتخاب کنید</li>
+                    <li>در صفحه باز شده روی "Add" یا "نصب" کلیک کنید</li>
+                    <li>در iOS: در مرورگر Safari روی دکمه Share کلیک کرده و 'Add to Home Screen' را انتخاب کنید</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" id="understandBtn">متوجه شدم</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">
+            <p>تمامی حقوق توسط visitsmart محفوظ می‌باشد ۱۴۰۴</p>
+            <p>کافه بوتیک - پوشاک مردانه با کیفیت و سود پایین | ۱۴۰۴ ©</p>
+        </div>
+        
+        <div class="visit-smart-container">
+            <p class="visit-smart-text">این صفحه توسط Visit Smart طراحی شده است. جهت سفارش طراحی صفحات مشابه تماس بگیرید:</p>
+            <div class="visit-smart-contact">
+                <a href="tel:09389793809">۰۹۳۸۹۷۹۳۸۰۹</a>
+                <a href="tel:09158148021">۰۹۱۵۸۱۴۸۰۲۱</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // متغیرهای اصلی
+        let deferredPrompt;
+        
+        // مدیریت مودال افزودن به صفحه اصلی
+        const addToHomeBtn = document.getElementById('addToHomeBtn');
+        const addToHomeModal = document.getElementById('addToHomeModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const understandBtn = document.getElementById('understandBtn');
+        
+        // نمایش مودال با کلیک روی دکمه افزودن
+        addToHomeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            addToHomeModal.classList.add('show');
+        });
+        
+        // بستن مودال
+        function closeModal() {
+            addToHomeModal.classList.remove('show');
+        }
+        
+        closeModalBtn.addEventListener('click', closeModal);
+        understandBtn.addEventListener('click', closeModal);
+        
+        // بستن مودال با کلیک خارج از آن
+        addToHomeModal.addEventListener('click', function(e) {
+            if (e.target === addToHomeModal) {
+                closeModal();
+            }
+        });
+        
+        // بستن مودال با دکمه ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && addToHomeModal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+        
+        // رویداد beforeinstallprompt - وقتی مرورگر آماده نصب است
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // جلوگیری از نمایش خودکار
+            e.preventDefault();
+            
+            // ذخیره رویداد برای استفاده بعدی
+            deferredPrompt = e;
+            
+            // نمایش دکمه نصب PWA
+            addToHomeBtn.style.display = 'inline-flex';
+            
+            // وقتی کاربر روی دکمه کلیک کرد
+            addToHomeBtn.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    // نمایش پنجره نصب مرورگر
+                    deferredPrompt.prompt();
+                    
+                    // منتظر پاسخ کاربر
+                    const { outcome } = await deferredPrompt.userChoice;
+                    
+                    // پاک کردن رویداد
+                    deferredPrompt = null;
+                    
+                    // مخفی کردن دکمه
+                    addToHomeBtn.style.display = 'none';
+                    
+                    // بستن مودال
+                    closeModal();
+                }
+            });
+        });
+        
+        // رویداد نصب موفق
+        window.addEventListener('appinstalled', () => {
+            deferredPrompt = null;
+            addToHomeBtn.style.display = 'none';
+            closeModal();
+        });
+        
+        // اسکرول نرم
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // انیمیشن المان‌ها هنگام اسکرول
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // مشاهده المان‌ها برای انیمیشن
+        document.querySelectorAll('.feature-item, .contact-item, .quick-contact, .add-to-home-btn').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        
+        // افکت پارالاکس برای پس‌زمینه
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const bgOverlay = document.querySelector('.bg-overlay');
+            bgOverlay.style.transform = `translateY(${scrolled * 0.1}px)`;
+        });
+        
+        // بهبود عملکرد تلفن‌های لمسی
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        
+        // جلوگیری از زوم دوباره روی ورودی‌ها در موبایل
+        document.addEventListener('dblclick', function(e) {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                e.preventDefault();
+            }
+        }, { passive: false });
+    </script>
+</body>
+</html>

@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کفش هرمس</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #FFFFFF;
+            --secondary: #F8F4F0;
+            --accent: #5D4037;
+            --accent-light: #8D6E63;
+            --text-dark: #5D4037;
+            --text-light: #8D6E63;
+            --text-black: #333333;
+            --radius: 12px;
+        }
+        
+        body {
+            background: var(--primary);
+            color: var(--text-black);
+            line-height: 1.6;
+            font-family: 'Vazirmatn', sans-serif;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent);
+            box-shadow: 0 5px 20px rgba(93, 64, 55, 0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+        
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Lalezar', cursive;
+            color: var(--text-dark);
+            position: relative;
+        }
+        
+        .logo-text::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        
+        /* دکمه افزودن به صفحه اصلی */
+        .install-button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .install-button:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(93, 64, 55, 0.2);
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+        }
+        
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Lalezar', cursive;
+            color: var(--text-dark);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.3);
+        }
+        
+        /* Quote */
+        .quote-section {
+            padding: 3rem 1.5rem;
+            background: linear-gradient(90deg, transparent, rgba(141, 110, 99, 0.05), transparent);
+            margin: 2rem 0;
+        }
+        
+        .quote-text {
+            font-size: 1.8rem;
+            text-align: center;
+            font-family: 'Lalezar', cursive;
+            color: var(--text-dark);
+        }
+        
+        /* Features */
+        .features {
+            padding: 4rem 1.5rem;
+            background: var(--secondary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(93, 64, 55, 0.1);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(93, 64, 55, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .feature-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        
+        .feature-item p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        /* Contact */
+        .contact-section {
+            padding: 4rem 1.5rem;
+            background: var(--primary);
+            padding-top: 8rem; /* افزایش فاصله از بالا */
+            margin-top: -4rem; /* جبران فاصله */
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(93, 64, 55, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(93, 64, 55, 0.1);
+        }
+        
+        .contact-item h3 {
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-item a, .contact-item p {
+            color: var(--text-black);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+        
+        /* Bank Card */
+        .bank-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(93, 64, 55, 0.2);
+        }
+        
+        .bank-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .bank-card-header h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .copy-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(93, 64, 55, 0.3);
+        }
+        
+        .card-number {
+            background: rgba(93, 64, 55, 0.05);
+            padding: 1.2rem;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            text-align: center;
+            font-family: monospace;
+            color: var(--text-dark);
+            border: 1px solid rgba(93, 64, 55, 0.1);
+            margin-bottom: 1rem;
+            direction: ltr;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 3px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .bank-name {
+            color: var(--text-light);
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        /* Copy Notification */
+        .copy-notification {
+            position: fixed;
+            top: 100px;
+            right: 50%;
+            transform: translateX(50%);
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(93, 64, 55, 0.3);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        
+        .copy-notification.show {
+            opacity: 1;
+        }
+        
+        /* Quick Contact */
+        .quick-contact {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(93, 64, 55, 0.1);
+            margin-top: 2rem;
+        }
+        
+        .quick-contact h3 {
+            color: var(--text-dark);
+            margin-bottom: 1.8rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+        
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            border: 1px solid rgba(93, 64, 55, 0.2);
+            background: white;
+            color: var(--text-dark);
+        }
+        
+        .contact-btn.instagram { 
+            background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            border: none;
+        }
+        
+        .contact-btn.call { 
+            background: var(--accent);
+            color: white;
+            border: none;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(93, 64, 55, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: white;
+            padding: 3rem 1.5rem 1.5rem;
+            border-top: 1px solid rgba(93, 64, 55, 0.1);
+        }
+        
+        .copyright {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .copyright p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Modal آموزش افزودن به صفحه اصلی */
+        .install-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+        }
+        
+        .install-modal.show {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .modal-content h3 {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: 'Lalezar', cursive;
+        }
+        
+        .instruction-steps {
+            margin-bottom: 2rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            color: var(--text-black);
+            line-height: 1.6;
+        }
+        
+        .step-text strong {
+            color: var(--accent);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .quote-text {
+                font-size: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .contact-btn {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+            
+            .card-number {
+                font-size: 1.1rem;
+                padding: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+            }
+            
+            .install-button {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .quote-section {
+                padding: 2rem 1rem;
+            }
+            
+            .features, .contact-section {
+                padding: 3rem 1rem;
+            }
+            
+            .contact-btn {
+                font-size: 0.9rem;
+                padding: 0.9rem;
+            }
+            
+            .bank-card {
+                padding: 1.5rem;
+            }
+            
+            .copy-notification {
+                top: 80px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+                padding: 1rem;
+            }
+            
+            .install-button {
+                margin-top: 10px;
+            }
+            
+            .contact-section {
+                padding-top: 6rem;
+                margin-top: -2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Copy Notification -->
+    <div class="copy-notification" id="copyNotification">
+        <i class="fas fa-check-circle"></i>
+        <span>شماره کارت با موفقیت کپی شد!</span>
+    </div>
+    
+    <!-- Modal آموزش افزودن به صفحه اصلی -->
+    <div class="install-modal" id="installModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h3>آموزش افزودن به صفحه اصلی</h3>
+            <div class="instruction-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">در مرورگر خود، روی دکمه <strong>منو</strong> (سه نقطه در بالا) کلیک کنید</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">گزینه <strong>افزودن به صفحه اصلی</strong> را انتخاب کنید</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">در پنجره باز شده، روی <strong>افزودن</strong> کلیک کنید</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">اکنون اپلیکیشن ما در صفحه اصلی دستگاه شما قرار دارد</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-text">کفش هرمس</div>
+            <button class="install-button" id="installButton">
+                <i class="fas fa-plus-circle"></i> افزودن به صفحه اصلی
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <h1>کفش هرمس</h1>
+            <p>با جدیدترین مدل‌های کفش مردانه و زنانه در خدمت شما هستیم</p>
+            <a href="#contact" class="btn">
+                <i class="fas fa-phone-alt"></i> ارتباط با ما
+            </a>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-text">الهام گرفته از اصالت، طراحی شده برای امروز</div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-shoe-prints"></i>
+                </div>
+                <h3>تنوع مدل</h3>
+                <p>گسترده‌ترین مجموعه کفش‌های کلاسیک و مدرن</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h3>کیفیت ساخت</h3>
+                <p>استفاده از بهترین مواد و ساخت با دقت بالا</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>خدمات ویژه</h3>
+                <p>مشاوره تخصصی و خدمات پس از فروش</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <!-- Bank Card -->
+            <div class="bank-card">
+                <div class="bank-card-header">
+                    <h3><i class="fas fa-credit-card"></i> شماره کارت بانکی</h3>
+                    <button class="copy-btn" id="copyCardBtn">
+                        <i class="far fa-copy"></i> کپی شماره کارت
+                    </button>
+                </div>
+                <div class="card-number" id="cardNumber">
+                    <span>5859</span>
+                    <span>8311</span>
+                    <span>8741</span>
+                    <span>5442</span>
+                </div>
+                <p class="bank-name">بانک تجارت</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> آدرس فروشگاه</h3>
+                    <p>شهرک غرب - قاسم آباد بین شریعتی ۱۳ و ۱۵ پلاک ۳۰۵</p>
+                    <a href="https://maps.google.com/?q=شهرک غرب قاسم آباد بین شریعتی ۱۳ و ۱۵ پلاک ۳۰۵" target="_blank">
+                        <i class="fas fa-map-marked-alt"></i> مسیریابی در نقشه
+                    </a>
+                </div>
+                
+                <div class="contact-item">
+                    <h3><i class="fas fa-phone-alt"></i> تماس تلفنی</h3>
+                    <a href="tel:09354390455">
+                        <i class="fas fa-mobile-alt"></i> ۰۹۳۵۴۳۹۰۴۵۵
+                    </a>
+                    <a href="tel:05136614817">
+                        <i class="fas fa-phone"></i> ۰۵۱۳۶۶۱۴۸۱۷
+                    </a>
+                </div>
+            </div>
+            
+            <div class="quick-contact">
+                <h3>ارتباط با ما</h3>
+                <div class="contact-buttons">
+                    <a href="https://instagram.com/hermes.kafsh" class="contact-btn instagram" target="_blank">
+                        <i class="fab fa-instagram"></i> اینستاگرام
+                    </a>
+                    
+                    <a href="tel:09354390455" class="contact-btn call">
+                        <i class="fas fa-phone-alt"></i> تماس تلفنی
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">
+            <p>تمامی حقوق متعلق به فروشگاه کفش هرمس می‌باشد ۱۴۰۴</p>
+            <p>کفش هرمس | ۱۴۰۴ ©</p>
+        </div>
+    </footer>
+
+    <script>
+        // Variables
+        let copyCardBtn = document.getElementById('copyCardBtn');
+        let cardNumber = document.getElementById('cardNumber');
+        let copyNotification = document.getElementById('copyNotification');
+        let installButton = document.getElementById('installButton');
+        let installModal = document.getElementById('installModal');
+        let closeModal = document.getElementById('closeModal');
+        
+        // Show copy notification
+        function showCopyNotification() {
+            copyNotification.classList.add('show');
+            
+            setTimeout(() => {
+                copyNotification.classList.remove('show');
+            }, 2000);
+        }
+        
+        // Copy card number - شماره کارت جدید 5859831187415442
+        function copyCardNumber() {
+            const cardText = '5859831187415442'; // شماره کارت جدید اصلاح شده
+            
+            navigator.clipboard.writeText(cardText).then(() => {
+                showCopyNotification();
+                
+                copyCardBtn.innerHTML = '<i class="fas fa-check"></i> کپی شد!';
+                copyCardBtn.style.background = 'var(--accent)';
+                
+                setTimeout(() => {
+                    copyCardBtn.innerHTML = '<i class="far fa-copy"></i> کپی شماره کارت';
+                }, 2000);
+                
+            }).catch(err => {
+                const textArea = document.createElement('textarea');
+                textArea.value = cardText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                showCopyNotification();
+            });
+        }
+        
+        // Copy card event
+        copyCardBtn.addEventListener('click', copyCardNumber);
+        cardNumber.addEventListener('click', copyCardNumber);
+        
+        // Show install modal
+        installButton.addEventListener('click', () => {
+            installModal.classList.add('show');
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            installModal.classList.remove('show');
+        });
+        
+        // Close modal when clicking outside
+        installModal.addEventListener('click', (e) => {
+            if (e.target === installModal) {
+                installModal.classList.remove('show');
+            }
+        });
+        
+        // Smooth scroll to correct section
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    // اگر هدف بخش تماس است، پایین‌تر اسکرول کنیم
+                    if (targetId === '#contact') {
+                        window.scrollTo({
+                            top: targetElement.offsetTop + 200, // اضافه کردن 200px به پایین
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // PWA Installation
+        let deferredPrompt;
+        
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            installButton.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    
+                    if (outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    deferredPrompt = null;
+                } else {
+                    installModal.classList.add('show');
+                }
+            });
+        });
+        
+        window.addEventListener('appinstalled', () => {
+            deferredPrompt = null;
+            console.log('PWA was installed');
+        });
+        
+        // Check if app is already installed
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            installButton.style.display = 'none';
+        }
+        
+        // Set correct card number in display
+        document.addEventListener('DOMContentLoaded', function() {
+            // اطمینان از نمایش صحیح شماره کارت
+            const cardSpans = cardNumber.querySelectorAll('span');
+            if (cardSpans.length === 4) {
+                cardSpans[0].textContent = '5859';
+                cardSpans[1].textContent = '8311';
+                cardSpans[2].textContent = '8741';
+                cardSpans[3].textContent = '5442';
+            }
+        });
+    </script>
+</body>
+</html>
