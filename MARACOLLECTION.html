@@ -39,56 +39,7 @@
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .loading-logo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 2rem;
-            border: 5px solid var(--accent);
-            box-shadow: 0 0 30px rgba(77, 171, 247, 0.5);
-            animation: pulse 2s infinite;
-        }
-        
-        .loading-spinner {
-            width: 60px;
-            height: 60px;
-            border: 5px solid rgba(52, 58, 64, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--accent);
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+      
         
         /* Header Styles */
         header {
@@ -1141,12 +1092,7 @@
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <img src="https://i.ibb.co/Kc6T3h4q/logo.png" alt="کالکشن مارکا Logo" class="loading-logo">
-        <div class="loading-spinner"></div>
-    </div>
-
+  
     <!-- Header -->
     <header>
         <div class="header-container">
@@ -1415,13 +1361,7 @@
     </div>
 
     <script>
-        // Loading Screen - فقط 2 ثانیه نمایش داده شود
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loadingScreen').classList.add('hidden');
-            }, 2000); // کاهش زمان به 2 ثانیه
-        });
-
+     
         // Add to Home Screen Functionality
         const addToHomeBtn = document.getElementById('addToHomeBtn');
         const addToHomeModal = document.getElementById('addToHomeModal');
